@@ -1,3 +1,3 @@
 header.loadInterfaceNavBar();
-buttonTheme.loadInterface();
-buttonTheme.buttonEvent();
+theme.loadInterface();
+theme.buttonEvent();
