@@ -1,0 +1,19 @@
+{
+  "name": "pomodoro",
+  "version": "0.1.0",
+  "description": "Projeto de timer focado na tecnica do pomodoro",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Pedro Paulo",
+  "license": "MIT",
+  "devDependencies": {
+    "electron": "^15.0.0"
+  },
+  "dependencies": {
+    "electron-reload": "^2.0.0-alpha.1"
+  }
+}
