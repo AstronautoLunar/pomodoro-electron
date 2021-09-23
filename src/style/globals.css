@@ -1,10 +1,18 @@
 :root {
+    /* theme dark */
+    --parma-violet-dark: #3B467D;
+    --greyed-lavender-dark: #585C80;
+    --sun-burst-yellow-dark: #804400;
+    --sun-burst-yellow-black-dark: #2E1900;
+    
+    /* theme light */
+    --parma-violet-light: #778efd;
+    --greyed-lavender-light: #aeb8fe;
+    --sun-burst-yellow-light: #ff8800;
+    --sun-burst-yellow-black-light: #ad5c00;
+
     --violet-pc: #27187E;
-    --parma-violet: #758BFD;
-    --greyed-lavender: #AEB8FE;
     --warn-grey: #F1F2F6;
-    --sun-burst-yellow: #FF8600;
-    --sun-burst-yellow-black: #ad5c00;
 }
 
 * {
@@ -14,4 +22,10 @@
     box-sizing: border-box;
 
     font-family: Arial, Helvetica, sans-serif;
+}
+
+header#header,
+main#main
+{
+    transition: background-color 600ms;
 }

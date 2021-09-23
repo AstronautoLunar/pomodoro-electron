@@ -1,9 +1,10 @@
 header#header {
-    
-    background-color: var(--parma-violet);
-    
     width: 100%;
     height: 5rem;
+   
+    background-color: var(--parma-violet-light);
+    
+    position: relative;
 }
 
 header#header,
@@ -43,4 +44,44 @@ img.icon {
 
 img.icon:hover {
     transform: scale(1.3);
+}
+
+div#button-theme {
+    width: 80px;
+    height: 40px;
+
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+
+    border: 1px solid var(--warn-grey);
+    border-radius: 20px;
+}
+
+div#circle {
+    border-radius: 100%;
+
+    width: 30px;
+    height: 30px;
+
+    position: relative;
+    top: 50%;
+    left: 50%;
+
+    transition: transform 200ms;
+
+    animation: appear-button 2s;
+
+    background-color: var(--warn-grey);
+}
+
+@keyframes appear-button {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
 }
