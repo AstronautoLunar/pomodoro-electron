@@ -1,6 +1,10 @@
+const WIDTH_AND_HEIGHT_ICON = 20;
+
 const theme = {
     button: window.document.querySelector("div#button-theme"),
-    circle: window.document.querySelector("div#circle"),
+    circle: window.document.querySelector("div#circle"),    
+
+    icon: new Image(WIDTH_AND_HEIGHT_ICON, WIDTH_AND_HEIGHT_ICON),
 
     currentTheme: "light",
 
@@ -26,11 +30,13 @@ const theme = {
         this.applyActionSwitch(this.currentTheme, {
             light: () => {
                 this.currentTheme = "dark";
+                theme.setIconButton("dark");
                 theme.configCircle("dark");
                 theme.applyWebsiteStyle("dark");
             },
             dark: () => {
                 this.currentTheme = "light";
+                theme.setIconButton("light");
                 theme.configCircle("light");
                 theme.applyWebsiteStyle("light");
             }
@@ -68,6 +74,17 @@ const theme = {
         })
     },
 
+    setIconButton(themeString) {
+        this.applyActionSwitch(themeString, {
+            light: () => {
+                this.icon.src = "./assets/icon-moon.svg";
+            },
+            dark: () => {
+                this.icon.src = "./assets/icon-sun.svg";
+            }
+        });
+    },
+
     applyActionSwitch(themeString, action) {
         switch(themeString) {
             default:
@@ -89,6 +106,9 @@ const theme = {
     },
 
     loadInterface() {
+        this.icon.setAttribute('id', 'icon-button');
+        this.circle.appendChild(this.icon);
+        this.setIconButton(this.currentTheme)
         this.configCircle(this.currentTheme);
         this.applyWebsiteStyle(this.currentTheme);
     }

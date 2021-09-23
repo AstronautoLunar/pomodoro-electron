@@ -8,15 +8,24 @@ header#header {
 }
 
 header#header,
-nav#nav-bar-header
+nav#nav-bar-header,
+div#circle
 {
     justify-content: center;
 }
+
+header#header,
+nav#nav-bar-header,
+ul#nav-bar-list,
+div#circle
+{
+    display: flex;
+}
+
 header#header,
 nav#nav-bar-header,
 ul#nav-bar-list
 {
-    display: flex;
     align-items: flex-end;
 }
 
@@ -60,6 +69,8 @@ div#button-theme {
 }
 
 div#circle {
+    align-items: center;
+
     border-radius: 100%;
 
     width: 30px;
