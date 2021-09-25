@@ -1,18 +1,28 @@
 :root {
-    /* theme dark */
+    /* Theme Dark */
     --parma-violet-dark: #3B467D;
     --greyed-lavender-dark: #585C80;
-    --sun-burst-yellow-dark: #804400;
+    --sun-burst-yellow-dark: #693800;
     --sun-burst-yellow-black-dark: #2E1900;
     
-    /* theme light */
+    /* Theme Light */
     --parma-violet-light: #778efd;
     --greyed-lavender-light: #aeb8fe;
-    --sun-burst-yellow-light: #ff8800;
+    --sun-burst-yellow-light: #da7400;
     --sun-burst-yellow-black-light: #ad5c00;
+
+    /* Theme Light Error */
+    --cinnabar-light: #D64933;
+    --pastel-pink-light: #E2978E;
+
+    /* Theme Dark Error */
+    --cinnabar-dark: #862112;
+    --pastel-pink-dark: #714c47
+    ;
 
     --violet-pc: #27187E;
     --warn-grey: #F1F2F6;
+    --warn-grey-darkness: #727376;
 }
 
 * {
@@ -22,10 +32,4 @@
     box-sizing: border-box;
 
     font-family: Arial, Helvetica, sans-serif;
-}
-
-header#header,
-main#main
-{
-    transition: background-color 600ms;
 }

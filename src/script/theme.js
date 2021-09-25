@@ -7,6 +7,7 @@ const theme = {
     icon: new Image(WIDTH_AND_HEIGHT_ICON, WIDTH_AND_HEIGHT_ICON),
 
     currentTheme: "light",
+    error: false,
 
     configCircle(themeString) {
         function moveCircle(distance) {
@@ -32,18 +33,24 @@ const theme = {
                 this.currentTheme = "dark";
                 theme.setIconButton("dark");
                 theme.configCircle("dark");
-                theme.applyWebsiteStyle("dark");
+                theme.applyWebsiteStyle({
+                    themeString: "dark",
+                    error: theme.error
+                });
             },
             dark: () => {
                 this.currentTheme = "light";
                 theme.setIconButton("light");
                 theme.configCircle("light");
-                theme.applyWebsiteStyle("light");
+                theme.applyWebsiteStyle({
+                    themeString: "light",
+                    error: theme.error
+                });
             }
         })
     },
 
-    applyWebsiteStyle(themeString) {
+    applyWebsiteStyle({ themeString, error }) {
         function applyBackgroundColor({element, color}) {
             element.style.backgroundColor = color;
         }
@@ -52,24 +59,71 @@ const theme = {
 
         this.applyActionSwitch(themeString, {
             light: () => {
-                applyBackgroundColor({
-                    element: header,
-                    color: "var(--parma-violet-light)"
-                })
-                applyBackgroundColor({
-                    element: main,
-                    color: "var(--greyed-lavender-light)"
-                })
+                if(!error) {
+                    if(clock.startClockPomo) {
+                        applyBackgroundColor({
+                            element: header,
+                            color: "var(--sun-burst-yellow-black-light)"
+                        });
+                        applyBackgroundColor({
+                            element: main,
+                            color: "var(--sun-burst-yellow-light)"
+                        });
+                    } else {
+                        applyBackgroundColor({
+                            element: header,
+                            color: "var(--parma-violet-light)"
+                        });
+                        applyBackgroundColor({
+                            element: main,
+                            color: "var(--greyed-lavender-light)"
+                        });
+                    }
+                } else {
+                    applyBackgroundColor({
+                        element: header,
+                        color: "var(--cinnabar-light)"
+                    })
+                    applyBackgroundColor({
+                            element: main,
+                        color: "var(--pastel-pink-light)"
+                    })
+                }
             },
             dark: () => {
-                applyBackgroundColor({
-                    element: header,
-                    color: "var(--parma-violet-dark)"
-                })
-                applyBackgroundColor({
-                        element: main,
-                    color: "var(--greyed-lavender-dark)"
-                })
+                if(!error) {
+                    if(clock.startClockPomo) {
+                        applyBackgroundColor({
+                            element: header,
+                            color: "var(--sun-burst-yellow-black-dark)"
+                        });
+                        applyBackgroundColor({
+                            element: main,
+                            color: "var(--sun-burst-yellow-dark)"
+                        });
+                    } else {
+                        applyBackgroundColor({
+                            element: header,
+                            color: "var(--parma-violet-dark)"
+                        });
+                        applyBackgroundColor({
+                            element: main,
+                            color: "var(--greyed-lavender-dark)"
+                        });
+                    }
+                } else {
+                    applyBackgroundColor({
+                        element: header,
+                        color: "var(--cinnabar-dark)"
+                    })
+                    applyBackgroundColor({
+                            element: main,
+                        color: "var(--pastel-pink-dark)"
+                    })
+                }
+            },
+            error: () => {
+                
             }
         })
     },
@@ -94,6 +148,9 @@ const theme = {
             case "dark":
                 action.dark();
                 break;
+            case "error":
+                action.error();
+                break;
         }
     },
 
@@ -110,6 +167,11 @@ const theme = {
         this.circle.appendChild(this.icon);
         this.setIconButton(this.currentTheme)
         this.configCircle(this.currentTheme);
-        this.applyWebsiteStyle(this.currentTheme);
+        this.applyWebsiteStyle({
+            themeString: theme.currentTheme,
+            error: theme.error
+        });
     }
 }
+
+

@@ -3,4 +3,60 @@ main#main {
     height: 89vh;
 
     background-color: var(--greyed-lavender-light);
+
+    transition: background-color 600ms 250ms;
+
+    flex-direction: column;
+}
+
+span#clock {
+    font-size: 5rem;
+    
+    color: var(--warn-grey);
+}
+
+main#main,
+div#controls-clock
+{
+    justify-content: space-around;
+}
+main#main,
+div#controls-clock,
+div.button-clock
+{
+    display: flex;
+    align-items: center;
+}
+
+div#area-button-clock {
+    width: 6rem;
+    height: 3rem;
+    
+    border-radius: 10px;
+    
+    margin: 10px;
+
+    background-color: var(--warn-grey-darkness);
+
+    position: relative;
+}
+
+button.button-clock {
+    width: inherit;
+    height: inherit;
+
+    border-radius: inherit;
+
+    border: none;
+
+    outline: none;
+
+    background-color: var(--warn-grey);
+
+    justify-content: center;
+
+    position: absolute;
+    bottom: 5px;
+
+    transition: bottom 100ms;
 }

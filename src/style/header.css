@@ -5,6 +5,8 @@ header#header {
     background-color: var(--parma-violet-light);
     
     position: relative;
+
+    transition: background-color 600ms 200ms;
 }
 
 header#header,
