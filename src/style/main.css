@@ -60,3 +60,8 @@ button.button-clock {
 
     transition: bottom 100ms;
 }
+
+img.icon-button-clock {
+    width: 25px;
+    height: 25px;
+}
