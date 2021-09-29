@@ -1,8 +1,9 @@
 const clock = {
     elementClock: window.document.querySelector("span#clock"),
 
-    timer: 5,
+    timer: 1500,
     startClockPomo: false,
+    typeClock: "pomo",
 
     convertSecondsInTimeline({ totalSeconds, type }) {
         function increment0(seconds) {
@@ -52,4 +53,32 @@ const clock = {
             element: this.elementClock
         });
     },
+
+    setTypeClock({ type }) {
+        switch(type) {
+            case "pomo":
+                clock.typeClock = "pomo";
+                clock.timer = 1500;
+                clock.loadClock();
+                break;
+            case "rest":
+                clock.typeClock = "rest";
+                clock.timer = 300;
+                clock.loadClock();
+                break;
+            default:
+                return new Error("Invalid watch type");
+        }
+    },
+    toggleTypeClock() {
+        if(clock.typeClock === "pomo") {
+            clock.setTypeClock({ 
+                type: 'rest'
+            })
+        } else {
+            clock.setTypeClock({ 
+                type: 'pomo'
+            })
+        }
+    }
 }

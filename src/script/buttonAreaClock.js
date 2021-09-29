@@ -1,5 +1,9 @@
+// const { Notification } = require('electron');
+
 const buttonAreaClock = {
     buttons: window.document.querySelectorAll("button.button-clock"),
+
+    iconClockNotification: "./assets/icon-notification.png",
 
     timerOutButton: null,
     timerOutClock: null,
@@ -28,10 +32,18 @@ const buttonAreaClock = {
 
                                 clock.startClockPomo = false;
 
+                                buttonAreaClock.beepNotification({
+                                    title: "Apitouuu!!!",
+                                    body: "Terminou a sua contagem",
+                                    icon: buttonAreaClock.iconClockNotification
+                                });
+
                                 theme.applyWebsiteStyle({
                                     themeString: theme.currentTheme,
                                     error: theme.error
                                 });
+
+                                clock.toggleTypeClock();
                             } else {
                                 clock.loadClock();
                             }
@@ -58,10 +70,29 @@ const buttonAreaClock = {
 
                         clock.loadClock();
                         break;
+                    case "notification":
+                        console.log("Notificou");
+
+                        const NOTIFICATION_TITLE = "Título da notificação";
+                        const NOTIFICATION_BODY = "Corpo da notificação";
+                        const NOTIFICATION_ICON = "./assets/icon-notification.png";
+
+                        
+
+                        break;
                     default:
                         return new Error("Invalidate button action")
                 }
             })
         })
+    },
+    requestNotification() {
+        Notification.requestPermission().then(result => console.log(result));
+    },
+    beepNotification({ title, body, icon }) {
+        new Notification(title, { 
+            body,
+            icon,
+        });
     }
 }

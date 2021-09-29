@@ -28,7 +28,7 @@ div.button-clock
     align-items: center;
 }
 
-div#area-button-clock {
+div.area-button-clock {
     width: 6rem;
     height: 3rem;
     
