@@ -7,6 +7,7 @@ const theme = {
     icon: new Image(WIDTH_AND_HEIGHT_ICON, WIDTH_AND_HEIGHT_ICON),
 
     currentTheme: "light",
+    storageTheme: window.localStorage.getItem('theme'),
     error: false,
 
     configCircle(themeString) {
@@ -37,6 +38,7 @@ const theme = {
                     themeString: "dark",
                     error: theme.error
                 });
+                window.localStorage.setItem('theme', 'dark');
             },
             dark: () => {
                 this.currentTheme = "light";
@@ -46,6 +48,7 @@ const theme = {
                     themeString: "light",
                     error: theme.error
                 });
+                window.localStorage.setItem('theme', 'light');
             }
         })
     },
@@ -121,9 +124,6 @@ const theme = {
                         color: "var(--pastel-pink-dark)"
                     })
                 }
-            },
-            error: () => {
-                
             }
         })
     },
@@ -147,9 +147,6 @@ const theme = {
                 break;
             case "dark":
                 action.dark();
-                break;
-            case "error":
-                action.error();
                 break;
         }
     },

@@ -4,3 +4,4 @@ theme.buttonEvent();
 clock.loadClock();
 buttonAreaClock.loadButtonsClick();
 buttonAreaClock.requestNotification();
+saveTheme.loadThemeForStorage();

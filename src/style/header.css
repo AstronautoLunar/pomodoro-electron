@@ -46,7 +46,12 @@ li.nav-bar-item {
     list-style-type: none;
 }
 
-img.icon {
+img#icon-theme-save {
+    margin-right: 10px;
+}
+
+img.icon
+{
     width: 25px;
     height: 25px;
 
@@ -60,7 +65,7 @@ img.icon:hover {
 div#button-theme {
     width: 80px;
     height: 40px;
-
+    
     position: absolute;
     right: 20px;
     top: 50%;
@@ -84,7 +89,7 @@ div#circle {
 
     transition: transform 200ms;
 
-    animation: appear-button 2s;
+    animation: appear-button 3s;
 
     background-color: var(--warn-grey);
 }
