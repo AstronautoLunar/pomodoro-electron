@@ -9,7 +9,7 @@
 * [Tecnologias](#tecnologias)
 
 <h4 align="center">
-  :heavy_check_mark: Concluido :heavy_check_mark:
+  🚧 Desenvolvimento... 🚧
 </h4>
 
 ## Sobre
