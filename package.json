@@ -11,7 +11,7 @@
   "author": "Pedro Paulo",
   "license": "MIT",
   "devDependencies": {
-    "electron": "^15.0.0"
+    "electron": "^15.1.0"
   },
   "dependencies": {
     "electron-reload": "^2.0.0-alpha.1"
