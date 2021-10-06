@@ -5,11 +5,13 @@ const clock = {
         src: "./assets/audio-whistle.mp3"
     }),
 
-    timer: 5,
+    timer: 1500,
     startClockPomo: false,
     typeClock: "pomo",
 
-    convertSecondsInTimeline({ totalSeconds, type }) {
+    cycleOfTimer: Number(localStorage.getItem("cycle-timer")) || 0,
+
+    convertSecondsInTimeline({ totalSeconds, type = "pomodoro" }) {
         function increment0(seconds) {
             return seconds > 9 ? seconds : `0${seconds}`;
         }
@@ -44,8 +46,7 @@ const clock = {
 
     setClock({ timer, element }) {
         clock.convertSecondsInTimeline({
-            totalSeconds: timer,
-            type: "pomodoro"
+            totalSeconds: timer
         }).then(data => {
             element.innerText = data;
         });
@@ -70,19 +71,31 @@ const clock = {
                 clock.timer = 300;
                 clock.loadClock();
                 break;
+            case "rest-long":
+                clock.typeClock = "rest-long";
+                clock.timer = 900;
+                clock.cycleOfTimer = 0;
+                clock.loadClock();
+                break;
             default:
                 return new Error("Invalid watch type");
         }
     },
     toggleTypeClock() {
-        if(clock.typeClock === "pomo") {
-            clock.setTypeClock({ 
-                type: 'rest'
-            })
+        if(clock.cycleOfTimer !== 4) {
+            if(clock.typeClock === "pomo") {
+                clock.setTypeClock({ 
+                    type: 'rest'
+                })
+            } else {
+                clock.setTypeClock({ 
+                    type: 'pomo'
+                })
+            }
         } else {
-            clock.setTypeClock({ 
-                type: 'pomo'
+            clock.setTypeClock({
+                type: "rest-long"
             })
         }
-    }
+    },
 }

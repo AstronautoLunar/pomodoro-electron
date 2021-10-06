@@ -33,6 +33,9 @@ const buttonAreaClock = {
                                 clock.startClockPomo = false;
                                 clock.audio.playAudio()
 
+                                clock.cycleOfTimer += 1;
+                                localStorage.setItem('cycle-timer', clock.cycleOfTimer);
+
                                 buttonAreaClock.beepNotification({
                                     title: "Apitouuu!!!",
                                     body: "Terminou a sua contagem",
@@ -67,7 +70,7 @@ const buttonAreaClock = {
                         });
                         break;
                     case "reload":
-                        clock.timer = 1500;
+                        clock.timer = 5;
 
                         clock.loadClock();
                         break;
