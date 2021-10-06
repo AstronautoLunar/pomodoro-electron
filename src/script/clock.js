@@ -1,7 +1,11 @@
 const clock = {
     elementClock: window.document.querySelector("span#clock"),
 
-    timer: 1500,
+    audio: new AudioPomodoro({
+        src: "./assets/audio-whistle.mp3"
+    }),
+
+    timer: 5,
     startClockPomo: false,
     typeClock: "pomo",
 

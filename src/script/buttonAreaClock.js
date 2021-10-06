@@ -29,8 +29,9 @@ const buttonAreaClock = {
         
                             if(clock.timer === -1) {
                                 clearInterval(buttonAreaClock.timerOutClock);
-
+                                
                                 clock.startClockPomo = false;
+                                clock.audio.playAudio()
 
                                 buttonAreaClock.beepNotification({
                                     title: "Apitouuu!!!",
@@ -69,16 +70,6 @@ const buttonAreaClock = {
                         clock.timer = 1500;
 
                         clock.loadClock();
-                        break;
-                    case "notification":
-                        console.log("Notificou");
-
-                        const NOTIFICATION_TITLE = "Título da notificação";
-                        const NOTIFICATION_BODY = "Corpo da notificação";
-                        const NOTIFICATION_ICON = "./assets/icon-notification.png";
-
-                        
-
                         break;
                     default:
                         return new Error("Invalidate button action")
