@@ -70,7 +70,7 @@ const buttonAreaClock = {
                         });
                         break;
                     case "reload":
-                        clock.timer = 5;
+                        clock.timer = 1500;
 
                         clock.loadClock();
                         break;
